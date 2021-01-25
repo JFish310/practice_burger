@@ -40,8 +40,9 @@ img{
     margin-right: 55px;
 }
 
+/*PC版では表示しない*/
 .burger-btn{
-  display: none;
+  display: none;  /*領域そのものを生成しない*/
 }
 
 /* ------------------ */
@@ -96,7 +97,47 @@ h3{
   /* ----------------------- */
   /* base_sp
   /* ----------------------- */
-  
+  .burger-btn{
+    display: block;       /*ブロックレベルで表示*/
+    width: 39px;          /*幅*/
+    height: 39px;         /*高さ*/
+    position: relative;   /*通常の位置を基準とした相対的な配置*/
+    z-index: 3;           /*値が大きいものほど前面（手前）に表示される （0 が基準）*/
+    border:none;          /*線なし*/
+  }    
+  .bar{      
+    width: 20px;      
+    height: 1px;        
+    display: block;      
+    position: absolute;      /*絶対位置*/
+    left: 50%;      
+    transform: translateX(-50%);  /*X方向の子要素の半分戻る*/
+    background-color: #fff;    
+  }    
+  .bar_top{   
+    top: 10px;  /*上からの距離*/
+  }
+  .bar_mid{    
+    top: 50%;   /*上からの距離*/
+    transform: translate(-50%,-50%);  /*X方向Y方向、共に半分戻る*/
+  }
+  .bar_bottom{
+    bottom: 10px;   /*下からの距離*/
+  }
+
+  /*ボタンをクローズ*/
+  .burger-btn.close .bar_top{      
+    transform: translate(-50%,10px) rotate(45deg);      
+    transition: transform .3s;    
+  }    
+  .burger-btn.close .bar_mid{      
+    opacity: 0;       
+    transition: opacity .3s;    
+  }    
+  .burger-btn.close .bar_bottom{      
+  transform: translate(-50%,-8px) rotate(-45deg);      
+  transition: transform .3s;    
+  }
 
   /* ------------------ */
   /* humberger-menu */
@@ -104,7 +145,37 @@ h3{
   .header{
       padding: 0 5%;
   }
-
+  .nav-wrapper{       /*ナビゲーションメニュー*/
+    display: none;    /*領域そのものを生成しない*/
+    width: 100vw;     /* ビューポートが 600px だとしたら、画像の幅は 60px になる */
+    height: 100vh;    /*ビューポート　高さ*/
+    position: fixed;  /*絶対位置、スクロールしても位置は固定されたまま*/
+    top: 0;           /*上0*/
+    left: 0;          /*左0*/
+    z-index: 2;       /*値が大きいものほど前面（手前）に表示される （0 が基準）
+                       キービジュアルと.btn_triggerとの重なりの前後関係を調整*/
+  }
+  .header-nav{
+    width: 100%;
+    height: 100%;
+    background-color:#1B1310;
+    z-index: 2;
+  }
+  .header-nav.nav-list{
+    display: block;
+    position: absolute;   /*絶対位置*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+  }      
+  .header-nav.nav-item{
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  body.noscroll{
+  overflow: hidden;
+  }
   
   /* ------------------ */
   /* fv */
