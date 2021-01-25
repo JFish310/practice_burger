@@ -134,10 +134,14 @@ h3{
     opacity: 0;       
     transition: opacity .3s;    
   }    
-  .burger-btn.close .bar_bottom{      
-  transform: translate(-50%,-8px) rotate(-45deg);      
+  .burger-btn.close .bar_bottom{
+  transform: translate(-50%,-8px) rotate(-45deg);
   transition: transform .3s;    
   }
+
+  body.noscroll{
+    overflow: hidden;
+    }
 
   /* ------------------ */
   /* humberger-menu */
@@ -172,9 +176,6 @@ h3{
   .header-nav.nav-item{
     margin-right: 0;
     margin-bottom: 40px;
-  }
-  body.noscroll{
-  overflow: hidden;
   }
   
   /* ------------------ */
