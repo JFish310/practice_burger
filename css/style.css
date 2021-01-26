@@ -165,15 +165,15 @@ h3{
     background-color:#1B1310;
     z-index: 2;
   }
-  .header-nav.nav-list{
+  .header-nav .nav-list{
     display: block;
     position: absolute;   /*絶対位置*/
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
-  }      
-  .header-nav.nav-item{
+  }
+  .header-nav .nav-item{
     margin-right: 0;
     margin-bottom: 40px;
   }
